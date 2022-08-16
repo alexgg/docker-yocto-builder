@@ -18,7 +18,7 @@ docker run -it --rm aggurio/yocto-builder:<version>
 For example,
 
 ```
-docker run -it --rm aggurio/yocto-builder:2.6
+docker run -it --rm -v /opt/poky:/home/build/poky aggurio/yocto-builder:4.0
 ```
 
 Build:
@@ -26,6 +26,6 @@ Build:
 ```
 docker build \
 -t yocto-builder:<version> \
---build-arg UBUNTU_VERSION="bionic" \
+--build-arg UBUNTU_VERSION="20.4" \
 --no-cache .
 ```
