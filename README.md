@@ -27,5 +27,7 @@ Build:
 docker build \
 -t yocto-builder:<version> \
 --build-arg UBUNTU_VERSION="20.4" \
+--build-arg UID="1000" \
+--build-arg GID="1000" \
 --no-cache .
 ```

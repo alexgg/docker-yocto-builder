@@ -23,7 +23,9 @@ ENV LANG en_US.UTF-8
 RUN curl -o /usr/local/bin/repo http://commondatastorage.googleapis.com/git-repo-downloads/repo && chmod a+x /usr/local/bin/repo
 
 # User management
-RUN groupadd -g 1000 build && useradd -u 1000 -g 1000 -ms /bin/bash build
+ARG UID=1000
+ARG GID=1000
+RUN groupadd -g $GID build && useradd -u $UID -g $GID -ms /bin/bash build
 RUN echo "build ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 USER build
